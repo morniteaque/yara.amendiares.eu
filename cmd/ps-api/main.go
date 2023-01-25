@@ -8,11 +8,11 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/pojntfx/personal-site/api/github"
-	"github.com/pojntfx/personal-site/api/mastodon"
-	"github.com/pojntfx/personal-site/api/twitch"
-	"github.com/pojntfx/personal-site/api/twitter"
-	"github.com/pojntfx/personal-site/api/youtube"
+	"github.com/morniteaque/yara.amendiares.eu/api/github"
+	"github.com/morniteaque/yara.amendiares.eu/api/mastodon"
+	"github.com/morniteaque/yara.amendiares.eu/api/twitch"
+	"github.com/morniteaque/yara.amendiares.eu/api/twitter"
+	"github.com/morniteaque/yara.amendiares.eu/api/youtube"
 )
 
 func main() {

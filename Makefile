@@ -2,7 +2,7 @@
 DESTDIR ?=
 
 WWWROOT ?= /var/www/html
-WWWPREFIX ?= /felicitas.pojtinger
+WWWPREFIX ?= /yara.amendiares
 
 PREFIX ?= /usr/local
 OUTPUT_DIR ?= out

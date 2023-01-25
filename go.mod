@@ -1,4 +1,4 @@
-module github.com/pojntfx/personal-site
+module github.com/morniteaque/yara.amendiares.eu
 
 go 1.16
 
