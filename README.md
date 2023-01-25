@@ -1,11 +1,11 @@
 # Personal Site
 
-Personal site of Yara Amendiares.
+Personal site of @Yaramendiares5.
 
-[![hydrun CI](https://github.com/morniteaque/yara.amendiares.eu/actions/workflows/hydrun.yaml/badge.svg)](https://github.com/morniteaque/yara.amendiares.eu/actions/workflows/hydrun.yaml)
+[![hydrun CI](https://github.com/morniteaque/yaraamendiares.eu/actions/workflows/hydrun.yaml/badge.svg)](https://github.com/morniteaque/yaraamendiares.eu/actions/workflows/hydrun.yaml)
 ![Go Version](https://img.shields.io/badge/go%20version-%3E=1.16-61CFDD.svg)
-[![Go Reference](https://pkg.go.dev/badge/github.com/morniteaque/yara.amendiares.eu.svg)](https://pkg.go.dev/github.com/morniteaque/yara.amendiares.eu)
-[![Binary Downloads](https://img.shields.io/github/downloads/morniteaque/yara.amendiares.eu/total?label=binary%20downloads)](https://github.com/morniteaque/yara.amendiares.eu/releases)
+[![Go Reference](https://pkg.go.dev/badge/github.com/morniteaque/yaraamendiares.eu.svg)](https://pkg.go.dev/github.com/morniteaque/yaraamendiares.eu)
+[![Binary Downloads](https://img.shields.io/github/downloads/morniteaque/yaraamendiares.eu/total?label=binary%20downloads)](https://github.com/morniteaque/yaraamendiares.eu/releases)
 
 ## Overview
 

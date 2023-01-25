@@ -1,4 +1,4 @@
-module github.com/morniteaque/yara.amendiares.eu
+module github.com/morniteaque/yaraamendiares.eu
 
 go 1.16
 

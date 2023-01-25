@@ -8,11 +8,11 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/morniteaque/yara.amendiares.eu/api/github"
-	"github.com/morniteaque/yara.amendiares.eu/api/mastodon"
-	"github.com/morniteaque/yara.amendiares.eu/api/twitch"
-	"github.com/morniteaque/yara.amendiares.eu/api/twitter"
-	"github.com/morniteaque/yara.amendiares.eu/api/youtube"
+	"github.com/morniteaque/yaraamendiares.eu/api/github"
+	"github.com/morniteaque/yaraamendiares.eu/api/mastodon"
+	"github.com/morniteaque/yaraamendiares.eu/api/twitch"
+	"github.com/morniteaque/yaraamendiares.eu/api/twitter"
+	"github.com/morniteaque/yaraamendiares.eu/api/youtube"
 )
 
 func main() {

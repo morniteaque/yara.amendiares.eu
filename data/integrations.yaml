@@ -1,8 +1,8 @@
 giscus:
-  repo: morniteaque/yara.amendiares.eu
-  repoID: MDEwOlJlcG9zaXRvcnkyMjk0NTAyMDE=
-  category: Announcements
-  categoryID: DIC_kwDODa0h2c4CAeR2
+  repo: morniteaque/yaraamendiares.eu
+  repoID: R_kgDOI16Omw
+  category: General
+  categoryID: DIC_kwDOI16Om84CTzje
   mapping: pathname
   reactionsEnabled: 1
   emitMetadata: 1
@@ -11,16 +11,16 @@ youtube:
   enabled: false
   username: UC0-pwQXvswpwjMVV_jdFLzg
 twitch:
-  enabled: false
-  username: pojntfx
+  enabled: true
+  username: yaraamendiarees
 github:
-  enabled: true
-  username: pojntfx
-  projects: true
-twitter:
   enabled: false
-  username: pojntfx
-  warning: true
-mastodon:
+  username: Yaramendiares5
+  projects: false
+twitter:
   enabled: true
-  username: "@pojntfx@mastodon.social"
+  username: foushi19
+  warning: false
+mastodon:
+  enabled: false
+  username: "@foushi19@mastodon.social"
