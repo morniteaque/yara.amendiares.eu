@@ -21,6 +21,7 @@ twitter:
   enabled: true
   username: foushi19
   warning: false
+  construction: true
 mastodon:
   enabled: false
   username: "@foushi19@mastodon.social"
