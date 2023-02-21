@@ -6,6 +6,10 @@ draft: false
 
 ## Maps
 
+### 2010 South Korea Municipal Elections
+
+[![2010 South Korea Municipal Elections](/maps/2010-south-korea-municipal-elections.jpg)](/maps/2010-south-korea-municipal-elections.jpg)
+
 ### 1848 French Presidental Election
 
 [![Élection Présidentielle Française de 1848](/maps/1848-french-presidental-election.jpg)](/maps/1848-french-presidental-election.jpg)
