@@ -17,6 +17,12 @@ Hirschkopfweg 8<br/>
 Phone: <a href="tel:+49 152 33842326">+49 152 33842326</a><br/>
 Email: <a href="mailto:felicitas@pojtinger.com">felicitas@pojtinger.com</a>
 
+### Responsible for the Content According to § 55 Abs. 2 RStV
+
+Felicitas Pojtinger<br/>
+Hirschkopfweg 8<br/>
+72270 Baiersbronn
+
 ## Deutsch
 
 ### Angaben gemäß § 5 TMG
@@ -29,3 +35,9 @@ Hirschkopfweg 8<br/>
 
 Telefon: <a href="tel:+49 152 33842326">+49 152 33842326</a><br/>
 E-Mail: <a href="mailto:felicitas@pojtinger.com">felicitas@pojtinger.com</a>
+
+### Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
+
+Felicitas Pojtinger<br/>
+Hirschkopfweg 8<br/>
+72270 Baiersbronn
