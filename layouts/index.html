@@ -2,11 +2,16 @@
   <header
     class="pf-c-page__header pf-c-page__header--max-width pf-c-page__header--overlay pf-c-page__header--overlay--index pf-x-u-white-space-nowrap pf-x-u-overflow-x-auto"
   >
-    <div
-      class="pf-c-page__header__content--max-width pf-c-page__header__content--max-width--home"
-    >
+    <div class="pf-c-page__header__content--max-width">
+      {{ if .Site.Data.integrations.spotify.enabled }}
+        {{ partial "spotifystatus" (dict "ID" "spotifystatus" "Username" .Site.Data.integrations.spotify.username "BaseURL" .Site.BaseURL ) }}
+      {{ end }}
+
+
       <div
-        class="pf-u-display-flex pf-u-align-items-center pf-u-pr-sm pf-u-pr-0-on-xl"
+        class="pf-u-display-flex pf-u-align-items-center pf-u-pr-sm pf-u-pr-0-on-xl {{ if not .Site.Data.integrations.spotify.enabled }}
+          pf-u-ml-auto
+        {{ end }}"
       >
         {{ range .Site.Data.links.navbar }}
           <a
@@ -39,7 +44,9 @@
 
 {{ define "main" }}
   <main
-    class="pf-c-page__main pf-c-page__main--with-overlay pf-c-page__main--index pf-x-u-blur  {{ if or .Site.Data.effects.fireworks .Site.Data.effects.snowfall .Site.Data.effects.rainfall }}
+    class="pf-c-page__main pf-c-page__main--with-overlay {{ if .Site.Data.effects.grid }}
+      pf-c-page__main--with-overlay--grid
+    {{ end }} pf-c-page__main--index pf-x-u-blur  {{ if or .Site.Data.effects.fireworks .Site.Data.effects.snowfall .Site.Data.effects.rainfall }}
       pf-c-page__main--with-effects{{ if not .Site.Data.effects.blur }}
         pf-c-page__main--with-effects--without-blur
       {{ end }}
@@ -86,12 +93,12 @@
       </figure>
 
       <div
-        class="pf-l-grid__item pf-m-12-col pf-m-5-col-on-lg pf-u-mt-lg pf-u-mt-0-on-lg pf-u-display-flex pf-u-align-items-center pf-u-justify-content-center"
+        class="pf-l-grid__item pf-m-12-col pf-m-5-col-on-lg pf-u-mt-lg pf-u-mt-0-on-lg pf-u-display-flex pf-u-align-items-center pf-u-justify-content-center-on-md pf-u-flex-direction-column pf-u-flex-direction-row-on-sm"
       >
         <a
           href="{{ .Site.Data.links.cta.link }}"
           target="_blank"
-          class="pf-c-button pf-m-primary pf-u-mr-md"
+          class="pf-c-button pf-m-primary pf-u-mb-md pf-u-mb-0-on-sm pf-u-mr-md-on-sm"
         >
           <span class="pf-c-button__icon pf-m-start">
             <i class="{{ .Site.Data.links.cta.icon }}" aria-hidden="true"></i>
@@ -120,9 +127,9 @@
             <div
               class="pf-c-card__title pf-l-flex pf-m-justify-content-space-between pf-m-align-items-center pf-u-py-xl"
             >
-              <span>Articles</span>
+              <span>Recent Articles</span>
             </div>
-            <div class="pf-c-card__body twitterfeed">
+            <div class="pf-c-card__body">
               <ul class="pf-l-flex pf-m-column pf-m-space-items-sm">
                 {{ range .Pages }}
                   {{ if eq .Title "Articles" }}
@@ -174,7 +181,9 @@
       </div>
       <div class="pf-l-grid__item pf-m-12-col pf-m-5-col-on-lg">
         <section id="tweets" class="pf-c-section--articles">
-          {{ if .Site.Data.integrations.twitter.enabled }}
+          {{ if .Site.Data.integrations.bluesky.enabled }}
+            {{ partial "blueskyfeed" (dict "ID" "blueskyfeed" "Username" .Site.Data.integrations.bluesky.username "Construction" .Site.Data.integrations.bluesky.construction "BaseURL" .Site.BaseURL ) }}
+          {{ else if .Site.Data.integrations.twitter.enabled }}
             {{ partial "twitterfeed" (dict "ID" "twitterfeed" "Username" .Site.Data.integrations.twitter.username "Warning" .Site.Data.integrations.twitter.warning "Construction" .Site.Data.integrations.twitter.construction "BaseURL" .Site.BaseURL ) }}
           {{ else }}
             {{ partial "mastodonfeed" (dict "ID" "mastodonfeed" "Username" .Site.Data.integrations.mastodon.username "Construction" .Site.Data.integrations.mastodon.construction "BaseURL" .Site.BaseURL ) }}

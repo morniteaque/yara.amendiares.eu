@@ -8,8 +8,10 @@ import (
 	"os"
 	"strconv"
 
+	"github.com/morniteaque/yaraamendiares.eu/api/bluesky"
 	"github.com/morniteaque/yaraamendiares.eu/api/github"
 	"github.com/morniteaque/yaraamendiares.eu/api/mastodon"
+	"github.com/morniteaque/yaraamendiares.eu/api/spotify"
 	"github.com/morniteaque/yaraamendiares.eu/api/twitch"
 	"github.com/morniteaque/yaraamendiares.eu/api/twitter"
 	"github.com/morniteaque/yaraamendiares.eu/api/youtube"
@@ -24,10 +26,17 @@ func main() {
 	mastodonClientSecret := flag.String("mastodon-client-secret", "", "Mastodon API client secret (can also be set using the MASTODON_CLIENT_SECRET env variable)")
 	mastodonAccessToken := flag.String("mastodon-access-token", "", "Mastodon API access token (can also be set using the MASTODON_ACCESS_TOKEN env variable)")
 
+	blueskyServer := flag.String("bluesky-server", "", "Bluesky API server (can also be set using the BLUESKY_SERVER env variable)")
+	blueskyPassword := flag.String("bluesky-password", "", "Bluesky password (can also be set using the BLUESKY_PASSWORD env variable)")
+
 	githubAPI := flag.String("github-api", "", "GitHub/Gitea API endpoint to use (can also be set using the GITHUB_API env variable)")
 	githubToken := flag.String("github-token", "", "GitHub/Gitea API access token (can also be set using the GITHUB_TOKEN env variable)")
 
 	youtubeToken := flag.String("youtube-token", "", "YouTube API access token (can also be set using the YOUTUBE_TOKEN env variable)")
+
+	spotifyClientID := flag.String("spotify-client-id", "", "Spotify API client ID (can also be set using the SPOTIFY_CLIENT_ID env variable)")
+	spotifyClientSecret := flag.String("spotify-client-secret", "", "Spotify API client secret (can also be set using the SPOTIFY_CLIENT_SECRET env variable)")
+	spotifyRefreshToken := flag.String("spotify-refresh-token", "", "Spotify API refresh token (can also be set using the SPOTIFY_REFRESH_TOKEN env variable)")
 
 	laddr := flag.String("laddr", "localhost:1314", "Listen address for the API")
 
@@ -59,6 +68,14 @@ func main() {
 		*mastodonAccessToken = os.Getenv("MASTODON_ACCESS_TOKEN")
 	}
 
+	if *blueskyServer == "" {
+		*blueskyServer = os.Getenv("BLUESKY_SERVER")
+	}
+
+	if *blueskyPassword == "" {
+		*blueskyPassword = os.Getenv("BLUESKY_PASSWORD")
+	}
+
 	if *githubAPI == "" {
 		*githubAPI = os.Getenv("GITHUB_API")
 	}
@@ -69,6 +86,18 @@ func main() {
 
 	if *youtubeToken == "" {
 		*youtubeToken = os.Getenv("YOUTUBE_TOKEN")
+	}
+
+	if *spotifyClientID == "" {
+		*spotifyClientID = os.Getenv("SPOTIFY_CLIENT_ID")
+	}
+
+	if *spotifyClientSecret == "" {
+		*spotifyClientSecret = os.Getenv("SPOTIFY_CLIENT_SECRET")
+	}
+
+	if *spotifyRefreshToken == "" {
+		*spotifyRefreshToken = os.Getenv("SPOTIFY_REFRESH_TOKEN")
 	}
 
 	if rawTTL := os.Getenv("TTL"); rawTTL != "" {
@@ -130,6 +159,22 @@ func main() {
 		mastodon.MastodonFeedHandler(rw, r, *mastodonServer, *mastodonClientID, *mastodonClientSecret, *mastodonAccessToken)
 	})
 
+	mux.HandleFunc("/api/bluesky", func(rw http.ResponseWriter, r *http.Request) {
+		defer func() {
+			if err := recover(); err != nil {
+				log.Println("Error occured in Bluesky API:", err)
+
+				http.Error(rw, "Error occured in Bluesky API", http.StatusInternalServerError)
+
+				return
+			}
+		}()
+
+		rw.Header().Add("Cache-Control", fmt.Sprintf("s-maxage=%v", *ttl))
+
+		bluesky.BlueskyFeedHandler(rw, r, *blueskyServer, *blueskyPassword)
+	})
+
 	mux.HandleFunc("/api/github", func(rw http.ResponseWriter, r *http.Request) {
 		defer func() {
 			if err := recover(); err != nil {
@@ -160,6 +205,22 @@ func main() {
 		rw.Header().Add("Cache-Control", fmt.Sprintf("s-maxage=%v", *ttl))
 
 		youtube.YouTubeHandler(rw, r, *youtubeToken)
+	})
+
+	mux.HandleFunc("/api/spotify", func(rw http.ResponseWriter, r *http.Request) {
+		defer func() {
+			if err := recover(); err != nil {
+				log.Println("Error occured in Spotify API:", err)
+
+				http.Error(rw, "Error occured in Spotify API", http.StatusInternalServerError)
+
+				return
+			}
+		}()
+
+		rw.Header().Add("Cache-Control", fmt.Sprintf("s-maxage=%v", *ttl))
+
+		spotify.SpotifyStatusHandler(rw, r, *spotifyClientID, *spotifyClientSecret, *spotifyRefreshToken)
 	})
 
 	log.Println("API listening on", *laddr)

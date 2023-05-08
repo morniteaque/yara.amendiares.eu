@@ -2,3 +2,7 @@ baseURL: /
 languageCode: en-us
 title: Yara Amendiares
 relativeURLs: true
+markup:
+  goldmark:
+    renderer:
+      hardWraps: true

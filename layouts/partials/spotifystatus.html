@@ -1,0 +1,45 @@
+<a
+  id="{{ .ID }}"
+  target="_blank"
+  class="pf-u-display-flex pf-u-align-items-center pf-u-justify-content-center pf-c-page__header-brand-link--no-decoration pf-x-u-hoverable-parent spotifystatus pf-u-p-sm pf-u-ml-lg pf-u-ml-0-on-xl"
+>
+  <img
+    src="/img/spotify.svg"
+    alt="Spotify logo"
+    class="pf-c-avatar pf-u-mr-sm pf-c-avatar--navbar pf-x-spotify"
+  />
+
+  <div>
+    <div
+      class="pf-u-font-size-xs pf-x-u-text--freestanding spotifystatus__preamble"
+    >
+      I'm currently listening to ...
+    </div>
+
+    <div
+      class="pf-u-font-size-sm pf-u-font-weight-bold pf-x-u-navbar__title pf-x-u-text--freestanding spotifystatus__name"
+    ></div>
+  </div>
+</a>
+
+<noscript>Please enable JavaScript to view the Spotify status.</noscript
+><script type="module">
+  const base = "{{ .BaseURL }}"
+  const username = "{{ .Username }}";
+
+  const spotifyStatus = await (
+    await fetch(`${base}api/spotify`)
+  ).json();
+
+  if (spotifyStatus.song == "") {
+   document.querySelector("#{{ .ID }} .spotifystatus__preamble").innerText = "I'm not currently listening to anything ...";
+   document.querySelector("#{{ .ID }} .spotifystatus__name").innerText = "Spotify";
+    document.querySelector("#{{ .ID }}").href =
+    "https://open.spotify.com/user/" + username;
+  } else {
+   document.querySelector("#{{ .ID }} .spotifystatus__name").innerText =
+     spotifyStatus.song + " - " + spotifyStatus.artist;
+   document.querySelector("#{{ .ID }}").href =
+    spotifyStatus.link;
+  }
+</script>
