@@ -26,5 +26,5 @@ mastodon:
   enabled: false
   username: "@foushi19@mastodon.social"
 spotify:
-  enabled: true
+  enabled: false
   username: 31quw7yzr4t7d7iimod7k7tz43xa
