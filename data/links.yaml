@@ -5,10 +5,12 @@ navbar:
     icon: fas fa-map
     link: /maps
 cta:
-  title: Follow on Twitter
+  title: Follow on Threads
   icon: fas fa-plus-circle
-  link: https://twitter.com/YaraAmendiares
+  link: https://www.threads.net/@yaraamendiares
 socials:
+  - title: Twitter
+    link: https://twitter.com/YaraAmendiares
   - title: Discord
     link: https://discord.gg/QqPsrrpr
   - title: Instagram
