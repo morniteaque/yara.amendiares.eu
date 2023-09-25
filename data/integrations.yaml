@@ -10,8 +10,7 @@ giscus:
 youtube:
   enabled: false
 twitch:
-  enabled: true
-  username: yaraamendiarees
+  enabled: false
 github:
   enabled: false
   username: Yaramendiares5
