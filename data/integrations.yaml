@@ -9,7 +9,6 @@ giscus:
   theme: light
 youtube:
   enabled: false
-  username: UC0-pwQXvswpwjMVV_jdFLzg
 twitch:
   enabled: true
   username: yaraamendiarees
@@ -27,7 +26,5 @@ bluesky:
   username: yaramendiares.bsky.social
 mastodon:
   enabled: false
-  username: "@foushi19@mastodon.social"
 spotify:
   enabled: false
-  username: 31quw7yzr4t7d7iimod7k7tz43xa

@@ -1,5 +1,3 @@
-me:
-  - https://mastodon.social/@foushi19
 navbar:
   - title: Maps
     icon: fas fa-map
@@ -9,13 +7,9 @@ cta:
   icon: fas fa-plus-circle
   link: https://twitter.com/YaraAmendiares
 socials:
+  - title: Instagram
+    link: https://www.instagram.com/yaraamendiares/
   - title: Threads
     link: https://www.threads.net/@yaraamendiares
-  - title: Mastodon
-    link: https://mastodon.social/@foushi19
-  - title: Discord
-    link: https://discord.gg/QqPsrrpr
-  - title: Instagram
-    link: https://www.instagram.com/yara_amendiares/
   - title: Bluesky
     link: https://bsky.app/profile/yaramendiares.bsky.social
