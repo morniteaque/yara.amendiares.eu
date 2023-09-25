@@ -18,12 +18,12 @@ github:
   username: Yaramendiares5
   projects: false
 twitter:
-  enabled: false
+  enabled: true
   username: YaraAmendiares
   warning: false
-  construction: false
+  construction: true
 bluesky:
-  enabled: true
+  enabled: false
   username: yaramendiares.bsky.social
 mastodon:
   enabled: false
